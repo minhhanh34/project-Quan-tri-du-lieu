@@ -1,6 +1,9 @@
 package Management;
 
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.Scanner;
+
 
 public class RemovementState implements State {
 	
@@ -13,7 +16,7 @@ public class RemovementState implements State {
 	@Override
 	public void display() {
 		// TODO Auto-generated method stub
-		System.out.println("\tXóa sinh viên\n");
+		System.out.println("\n\tXóa sinh viên\n");
 	}
 	
 	@Override
@@ -32,13 +35,21 @@ public class RemovementState implements State {
 	}
 
 	private void showListChoose() {
-		System.out.println("\t1. Tiếp tục xóa.");
+		System.out.println("\n\t1. Tiếp tục xóa.");
 		System.out.println("\t2. Trang chủ.");
 	}
 
 	private void removeStudent() {
-		// Xóa sinh viên trong csdl
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("MSSV: ");
+		String mssv = sc.nextLine();
+		try {
+			Connection connection = DatabaseConnection.getInstance();
+			Statement statement = connection.createStatement();
+			statement.execute("DELETE FROM sinhvien WHERE MSSV = \"" + mssv + "\"");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		handing();
 	}
 

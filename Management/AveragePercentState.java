@@ -10,7 +10,7 @@ public class AveragePercentState implements State {
 	
 	@Override
 	public void display() {
-		System.out.println("\tTrung bình theo phần trăm\n");
+		System.out.println("\n\tTrung bình theo phần trăm\n");
 	}
 	
 	@Override

@@ -1,5 +1,10 @@
 package Management;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.util.Scanner;
+
 public class AdditionState implements State {
 
 	private StudentManagement manager;
@@ -10,7 +15,7 @@ public class AdditionState implements State {
 	
 	@Override
 	public void display() {
-		System.out.println("\tThêm sinh viên\n");
+		System.out.println("\n\tThêm sinh viên\n");
 	}
 	
 	@Override
@@ -30,13 +35,53 @@ public class AdditionState implements State {
 	}
 
 	private void showListChoose() {
-		System.out.println("\t1. Tiếp tục thêm.");
+		System.out.println("\n\t1. Tiếp tục thêm.");
 		System.out.println("\t2. Trang chủ.");
 	}
 
 	private void addStudent() {
-		// Thêm sinh viên vào csdl
+		Connection connection = DatabaseConnection.getInstance();
+		Scanner sc = new Scanner(System.in);
+		System.out.print("MSSV: \n");
+		String mssv = sc.nextLine();
+		System.out.print("Họ tên: ");
+		String name = sc.nextLine();
+		System.out.print("Địa chỉ: ");
+		String address = sc.nextLine();
+		System.out.print("Lớp: ");
+		String grade = sc.nextLine();
+		System.out.print("SĐT: ");
+		String phone = sc.nextLine();
+		System.out.print("Giới tính: ");
+		String gender = sc.nextLine();
 		
+		System.out.print("Điểm Quản trị hệ thống: ");
+		double qtht = sc.nextDouble();
+		System.out.print("Điểm Phân tích thiết kế hệ thống: ");
+		double pttkht = sc.nextDouble();
+		System.out.print("Điểm Quản trị dữ liệu: ");
+		double qtdl = sc.nextDouble();
+		
+		try {
+			PreparedStatement prepareStatementSinhVien = connection.prepareStatement("INSERT INTO sinhvien values (?, ?, ?, ?, ?, ?)");
+			PreparedStatement prepareStatementDiem = connection.prepareStatement("INSERT INTO diem values (?, ?, ?, ?)");
+			
+			prepareStatementSinhVien.setString(1, mssv);
+			prepareStatementSinhVien.setString(2, name);
+			prepareStatementSinhVien.setString(3, address);
+			prepareStatementSinhVien.setString(4, grade);
+			prepareStatementSinhVien.setString(5, phone);
+			prepareStatementSinhVien.setString(6, gender);
+			prepareStatementSinhVien.executeUpdate();
+			
+			prepareStatementDiem.setString(1, mssv);
+			prepareStatementDiem.setDouble(2, qtht);
+			prepareStatementDiem.setDouble(3, pttkht);
+			prepareStatementDiem.setDouble(4, qtdl);
+			prepareStatementDiem.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		
 		handing();
 	}

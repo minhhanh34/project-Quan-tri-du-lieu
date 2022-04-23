@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class HomeState implements State { 
 	
 	private StudentManagement manager;
-//	private int respone = 0;
 	
 	public HomeState(StudentManagement manager) {
 		this.manager = manager;
@@ -13,34 +12,23 @@ public class HomeState implements State {
 	
 	@Override
 	public void display() {
-		System.out.println("___Quản lý sinh viên___\n");
+		System.out.println("\n___Quản lý sinh viên___\n");
 		System.out.println("\tTrang chủ\n");
-		System.out.println(" 1. Danh sách sinh vien.");
+		System.out.println(" 1. Danh sách sinh viên.");
 		System.out.println(" 2. Thêm sinh viên.");
 		System.out.println(" 3. Xóa sinh viên.");
 		System.out.println(" 4. Tìm kiếm sinh viên.");
 		System.out.println(" 5. Những sinh viên có điểm trung bình cao nhất.");
-		System.out.println(" 6. Điểm trung bình của sinh viên theo %.");
-		System.out.println(" 7. Sửa Thông tin sinh viên.");
-		System.out.println(" 8. Danh sách sinh viên theo phân loại.");
+		//System.out.println(" 6. Điểm trung bình của sinh viên theo %.");
+		System.out.println(" 6. Sửa Thông tin sinh viên.");
+		System.out.println(" 7. Danh sách sinh viên theo phân loại.");
+		System.out.println(" 8. Thoát.");
 	}
 	
 	@Override
 	public void performAction() {
-//		getRespone();
 		handling();
 	}
-	
-//	private void getRespone() {
-//		Scanner sc = new Scanner(System.in);
-//		do {
-//			System.out.println("\nLựa chọn: ");
-//			respone = sc.nextInt();
-//			if(respone <= 0 || respone > 8)
-//				System.out.println("Lựa chọn không hợp lệ! Chọn lại.");
-//		} while (respone <= 0 || respone > 8);
-//		//sc.close();
-//	}
 
 	private void handling() {
 		switch(Respone.getRespone(1, 8)) {
@@ -59,15 +47,18 @@ public class HomeState implements State {
 			case 5:
 				navigate(manager.getMaxAverageState());
 				break;
+//			case 6:
+//				navigate(manager.getAveragePercentState());
+//				break;
 			case 6:
-				navigate(manager.getAveragePercentState());
-				break;
-			case 7:
 				navigate(manager.getEditionState());
 				break;
-			case 8:
+			case 7:
 				navigate(manager.getCategoryState());
 				break;
+			case 8:
+				System.err.println("Chương trình kết thúc! ");
+				System.exit(0);
 		}
 	}
 

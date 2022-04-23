@@ -1,5 +1,10 @@
 package Management;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
 public class SearchState implements State {
 
 	StudentManagement manager;
@@ -10,7 +15,7 @@ public class SearchState implements State {
 	
 	@Override
 	public void display() {
-		System.out.println("\tTìm kiếm sinh viên\n");
+		System.out.println("\n\tTìm kiếm sinh viên\n");
 	}
 	
 	@Override
@@ -30,14 +35,30 @@ public class SearchState implements State {
 	}
 
 	private void showListChoose() {
-		System.out.println("\t1. Tiếp tục tìm.");
+		System.out.println("\n\t1. Tiếp tục tìm.");
 		System.out.println("\t2. Trang chủ.");
 	}
 
-	private void searchStudent() {
-		// Tìm sinh viên trong csdl
-		
-		
+	public void searchStudent() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("MSSV: ");
+		String mssv = sc.nextLine();
+		Connection connection = DatabaseConnection.getInstance();
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet result = statement.executeQuery("SELECT * FROM sinhvien WHERE MSSV = \"" + mssv + "\"");
+			if(result.next()) {
+				System.out.println();
+				System.out.println("MSSV     : " + result.getString("MSSV"));
+				System.out.println("Họ tên   : " + result.getString("Ten"));
+				System.out.println("Lớp      : " + result.getString("Lop"));
+				System.out.println("Địa chỉ  : " + result.getString("DiaChi"));
+				System.out.println("SDT      : " + result.getString("soDienThoai"));
+				System.out.println("Giới tính: " + result.getString("gioiTinh"));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		handing();
 	}
 
