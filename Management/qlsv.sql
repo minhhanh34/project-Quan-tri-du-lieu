@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 23, 2022 lúc 05:36 PM
+-- Thời gian đã tạo: Th5 10, 2022 lúc 12:29 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.1.2
 
@@ -41,9 +41,12 @@ CREATE TABLE `diem` (
 INSERT INTO `diem` (`MSSV`, `QuanTriHeThong`, `PhanTichThietKeHeThong`, `QuanTriDuLieu`) VALUES
 ('B1234567', 9, 8.6, 8.7),
 ('B1900255', 10, 7.2, 8),
+('B1901234', 5, 4.8, 7),
 ('B1909911', 9, 8.6, 8.7),
 ('B1910360', 8.6, 8.2, 8.8),
-('B1998811', 9, 8.6, 8.7);
+('B1998822', 9, 8.6, 8.7),
+('B2109945', 7, 7, 7),
+('B3001243', 6.5, 7, 8);
 
 -- --------------------------------------------------------
 
@@ -62,7 +65,7 @@ CREATE TABLE `giangvien` (
 --
 
 INSERT INTO `giangvien` (`maGV`, `tenGV`, `tenMonHoc`) VALUES
-('B000024', 'Thái Minh Tuấn', 'Quản Trị Hệ Thống'),
+('B0000245', 'Thái Minh Tuấn', 'Quản Trị Hệ Thống'),
 ('B0002255', 'Trần Công Án', 'Quản Trị Dữ Liệu'),
 ('B0002333', 'Trương Quốc Định', 'Phân Tích Thiết Kế Hệ Thống');
 
@@ -88,9 +91,12 @@ CREATE TABLE `sinhvien` (
 INSERT INTO `sinhvien` (`MSSV`, `Ten`, `DiaChi`, `Lop`, `soDienThoai`, `gioiTinh`) VALUES
 ('B1234567', 'Lê Văn Chuột', 'Cà Mau', '19A4V8', '1234567890', 'Nam'),
 ('B1900255', 'Hà Đức Huỳnh', 'Sóc Trăng', '19V7A4', '123456789', 'nam'),
+('B1901234', 'Trần Dần', 'Mỹ Tho', '20V7A11', '345312123', 'Nam'),
 ('B1909911', 'Trịnh Minh Hạnh', 'Châu Thành, An Giang', '19V7A1', '123456789', 'Nam'),
 ('B1910360', 'Nguyễn Phát Đạt', 'Thoại Sơn, An Giang', '19V7A4', '123456789', 'Nam'),
-('B1998811', 'Hồ Thị Đồ', 'Hà Giang', '19V7A1', '313521245', 'Nam');
+('B1998822', 'Hồ Thị Đồ', 'Hà Giang', '19V7A1', '313521245', 'Nam'),
+('B2109945', 'Trần Chí Phèo', 'DăK LăK', '19V7A1', '467436843', 'Nam'),
+('B3001243', 'Nguyễn Thị Nở', 'Nghệ An', '18V7A5', '132454217', 'Nữ');
 
 --
 -- Chỉ mục cho các bảng đã đổ
