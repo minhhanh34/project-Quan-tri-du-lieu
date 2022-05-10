@@ -47,8 +47,10 @@ public class RemovementState implements State {
 			Connection connection = DatabaseConnection.getInstance();
 			Statement statement = connection.createStatement();
 			statement.execute("DELETE FROM sinhvien WHERE MSSV = \"" + mssv + "\"");
+			statement.execute("DELETE FROM diem WHERE MSSV = \"" + mssv + "\"");
+			System.out.println("\nXóa thành công");
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("\n Xóa thất bại!");
 		}
 		handing();
 	}

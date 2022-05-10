@@ -10,6 +10,7 @@ public class StudentManagement {
 	State averagePercentState;
 	State categoryState;
 	State maxAverageState;
+	State subjectState;
 	
 	State currentState;
 	
@@ -23,6 +24,7 @@ public class StudentManagement {
 		averagePercentState = new AveragePercentState(this);
 		categoryState = new CategoryState(this);
 		maxAverageState = new MaxAverageState(this);
+		subjectState = new SubjectState(this);
 		currentState = homeState;
 	}
 	
@@ -64,6 +66,10 @@ public class StudentManagement {
 
 	public State getMaxAverageState() {
 		return maxAverageState;
+	}
+	
+	public State getSubjectState() {
+		return subjectState;
 	}
 
 	public State getCurrentState() {

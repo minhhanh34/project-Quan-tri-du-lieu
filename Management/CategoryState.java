@@ -1,10 +1,7 @@
 package Management;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 import Management.MaxAverageState.Average;
 
@@ -51,19 +48,19 @@ public class CategoryState implements State {
 		System.out.println("Loại Giỏi (>= 8.0) :\n");
 		for(MaxAverageState.Average each : MaxAverageState.averages) {
 			if(each.avg >= 8.0)
-				System.out.println("  " + each.mssv + " - " + each.avg);
+				System.out.println("  " + each.mssv + " - " + each.name + " - " + each.avg);
 		}
 		
 		System.out.println("\nLoại Khá (6.5 - 7.9): \n");
 		for(MaxAverageState.Average each : MaxAverageState.averages) {
 			if(each.avg >= 6.5 && each.avg < 8.0)
-				System.out.println("  " + each.mssv + " - " + each.avg);
+				System.out.println("  " + each.mssv + " - " + each.name + " - " + each.avg);
 		}
 		
 		System.out.println("\nTrung Bình (< 6.5): \n");
 		for(MaxAverageState.Average each : MaxAverageState.averages) {
 			if(each.avg < 6.5)
-				System.out.println("  " + each.mssv + " - " + each.avg);
+				System.out.println("  " + each.mssv + " - " + each.name + " - " + each.avg);
 		}
 	}
 

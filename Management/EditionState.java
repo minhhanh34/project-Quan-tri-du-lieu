@@ -78,8 +78,9 @@ public class EditionState implements State {
 			if(field == "mssv") {
 				statement.executeUpdate("UPDATE diem SET " + field + " = \"" + newValue + "\" WHERE mssv = \"" + mssv + "\"");
 			}
+			System.out.println("\n Sửa thành công!");
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("\n Thất bại!");
 		}
 	}
 

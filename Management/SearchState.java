@@ -57,7 +57,7 @@ public class SearchState implements State {
 				System.out.println("Giới tính: " + result.getString("gioiTinh"));
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("\n ERROR");
 		}
 		handing();
 	}

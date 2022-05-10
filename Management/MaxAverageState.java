@@ -16,10 +16,12 @@ public class MaxAverageState implements State {
 	
 	public static class Average {
 		public String mssv;
+		public String name;
 		public double avg;
 		
-		public Average(String mssv, double avg) {
+		public Average(String mssv, String name, double avg) {
 			this.mssv = mssv;
+			this.name = name;
 			this.avg  = avg;
 		}
 	}
@@ -98,7 +100,7 @@ public class MaxAverageState implements State {
 		Connection connection = DatabaseConnection.getInstance();
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet result = statement.executeQuery("SELECT * FROM diem");
+			ResultSet result = statement.executeQuery("SELECT *, Ten FROM diem a, sinhvien b Where a.mssv = b.mssv");
 			averages.clear();
 			while(result.next()) {
 				double quanTriHeThong = result.getDouble("QuanTriHeThong");
@@ -108,7 +110,8 @@ public class MaxAverageState implements State {
 				avg = (double) Math.round(avg*100) / 100;
 				
 				String mssv = result.getString("MSSV");
-				averages.add(new Average(mssv, avg));
+				String name = result.getString("Ten");
+				averages.add(new Average(mssv, name, avg));
 			}
 		} catch (Exception e) {
 			System.out.println(e);

@@ -42,7 +42,7 @@ public class AdditionState implements State {
 	private void addStudent() {
 		Connection connection = DatabaseConnection.getInstance();
 		Scanner sc = new Scanner(System.in);
-		System.out.print("MSSV: \n");
+		System.out.print("MSSV: ");
 		String mssv = sc.nextLine();
 		System.out.print("Họ tên: ");
 		String name = sc.nextLine();
@@ -80,7 +80,7 @@ public class AdditionState implements State {
 			prepareStatementDiem.setDouble(4, qtdl);
 			prepareStatementDiem.executeUpdate();
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("\n Thêm thất bại!");
 		}
 		
 		handing();

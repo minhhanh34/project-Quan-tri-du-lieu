@@ -22,7 +22,8 @@ public class HomeState implements State {
 		//System.out.println(" 6. Điểm trung bình của sinh viên theo %.");
 		System.out.println(" 6. Sửa Thông tin sinh viên.");
 		System.out.println(" 7. Danh sách sinh viên theo phân loại.");
-		System.out.println(" 8. Thoát.");
+		System.out.println(" 8. Danh sách các môn học.");
+		System.out.println(" 9. Thoát.");
 	}
 	
 	@Override
@@ -31,7 +32,7 @@ public class HomeState implements State {
 	}
 
 	private void handling() {
-		switch(Respone.getRespone(1, 8)) {
+		switch(Respone.getRespone(1, 9)) {
 			case 1:
 				navigate(manager.getStudentListState());
 				break;
@@ -57,6 +58,9 @@ public class HomeState implements State {
 				navigate(manager.getCategoryState());
 				break;
 			case 8:
+				navigate(manager.getSubjectState());
+				break;
+			case 9:
 				System.err.println("Chương trình kết thúc! ");
 				System.exit(0);
 		}

@@ -40,11 +40,11 @@ public class StudentListState implements State {
 			ResultSet result = statement.executeQuery("SELECT * FROM sinhvien");
 			System.out.printf("   %-7s|    %-11s|  %-6s|   %-7s\n", "MSSV", "Họ tên", "Lớp", "Giới tính");
 			while(result.next()) {
-				String mssv = result.getString("MSSV");
-				String ten = result.getString("Ten");
-				String diaChi = result.getString("DiaChi");
-				String lop = result.getString("Lop");
-				String gioiTinh = result.getString("GioiTinh");
+				String mssv = result.getString("MSSV").strip();
+				String ten = result.getString("Ten").strip();
+//				String diaChi = result.getString("DiaChi");
+				String lop = result.getString("Lop").strip();
+				String gioiTinh = result.getString("GioiTinh").strip();
 				System.out.printf("%-10s|%-15s|%-8s|     %-5s\n", mssv, ten, lop, gioiTinh);
 			}
 		} catch (Exception e) {

@@ -6,6 +6,10 @@ import java.sql.DriverManager;
 public final class DatabaseConnection {
 	private static Connection instance;
 	
+	private DatabaseConnection() {
+		
+	}
+	
 	public synchronized static Connection getInstance() {
 		if(instance == null) {
 			try {
