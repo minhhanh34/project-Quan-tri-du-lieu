@@ -78,9 +78,15 @@ public class AdditionState implements State {
 			prepareStatementDiem.setDouble(2, qtht);
 			prepareStatementDiem.setDouble(3, pttkht);
 			prepareStatementDiem.setDouble(4, qtdl);
-			prepareStatementDiem.executeUpdate();
+			int row = 0;
+			row = prepareStatementDiem.executeUpdate();
+			
+			if(row != 0)
+				System.out.println("\n Thêm thành công!");
+			else 
+				System.out.println("\n Thêm thất bại!");
 		} catch (Exception e) {
-			System.out.println("\n Thêm thất bại!");
+			System.out.println("\n ERROR! - " + e.getMessage());
 		}
 		
 		handing();

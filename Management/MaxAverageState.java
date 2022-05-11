@@ -64,7 +64,7 @@ public class MaxAverageState implements State {
 			}
 			
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("\n ERROR! - " + e.getMessage());
 		}
 	}
 

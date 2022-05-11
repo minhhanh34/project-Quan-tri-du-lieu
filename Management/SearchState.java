@@ -55,9 +55,10 @@ public class SearchState implements State {
 				System.out.println("Địa chỉ  : " + result.getString("DiaChi"));
 				System.out.println("SDT      : " + result.getString("soDienThoai"));
 				System.out.println("Giới tính: " + result.getString("gioiTinh"));
-			}
+			} else 
+				System.out.println("\n Không có sinh viên " + mssv + " trong danh sách!" );
 		} catch (Exception e) {
-			System.out.println("\n ERROR");
+			System.out.println("\n ERROR! - " + e.getMessage());
 		}
 		handing();
 	}

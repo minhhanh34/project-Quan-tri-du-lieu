@@ -40,7 +40,7 @@ public class SubjectState implements State{
                 System.out.printf(" %-34s%-15s%-20s%n", subject, id, name);
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("\n ERROR! - " + e.getMessage());
 		}
 	}
 

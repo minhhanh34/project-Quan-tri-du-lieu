@@ -74,13 +74,25 @@ public class EditionState implements State {
 		Connection connection = DatabaseConnection.getInstance();
 		try {
 			Statement statement = connection.createStatement();
-			statement.executeUpdate("UPDATE sinhvien SET " + field + " = \"" + newValue + "\" WHERE mssv = \"" + mssv + "\"");
+			int row1 = 0, row2 = 0;
+			row1 = statement.executeUpdate("UPDATE sinhvien SET " + field + " = \"" + newValue + "\" WHERE mssv = \"" + mssv + "\"");
 			if(field == "mssv") {
-				statement.executeUpdate("UPDATE diem SET " + field + " = \"" + newValue + "\" WHERE mssv = \"" + mssv + "\"");
+				row2 = statement.executeUpdate("UPDATE diem SET " + field + " = \"" + newValue + "\" WHERE mssv = \"" + mssv + "\"");
+				
+				if(row1 != 0 && row2 != 0) {
+					System.out.println("\n Sửa thành công!");
+					return;
+				}
+					
 			}
-			System.out.println("\n Sửa thành công!");
+					
+			if(row1 != 0)
+				System.out.println("\n Sửa thành công!");
+			else
+				System.out.println("\n Sửa thất bại!");
+			
 		} catch (Exception e) {
-			System.out.println("\n Thất bại!");
+			System.out.println("\n ERROR! - " + e.getMessage());
 		}
 	}
 

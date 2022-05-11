@@ -1,7 +1,5 @@
 package Management;
 
-import java.util.Scanner;
-
 public class HomeState implements State { 
 	
 	private StudentManagement manager;

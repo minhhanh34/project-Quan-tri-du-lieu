@@ -10,12 +10,12 @@ public final class DatabaseConnection {
 		
 	}
 	
-	public synchronized static Connection getInstance() {
+	public static Connection getInstance() {
 		if(instance == null) {
 			try {
 				instance = DriverManager.getConnection("jdbc:mysql://localhost/qlsv?user=root");
 			} catch (Exception e) {
-				System.out.println(e);
+				System.out.println("\n ERROR! - " + e.getMessage());
 			}
 		}
 		return instance;

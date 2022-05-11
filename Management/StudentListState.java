@@ -38,6 +38,9 @@ public class StudentListState implements State {
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet result = statement.executeQuery("SELECT * FROM sinhvien");
+			
+			
+			
 			System.out.printf("   %-7s|    %-11s|  %-6s|   %-7s\n", "MSSV", "Họ tên", "Lớp", "Giới tính");
 			while(result.next()) {
 				String mssv = result.getString("MSSV").strip();
@@ -48,7 +51,7 @@ public class StudentListState implements State {
 				System.out.printf("%-10s|%-15s|%-8s|     %-5s\n", mssv, ten, lop, gioiTinh);
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("\n ERROR! - " + e.getMessage());
 		}
 	}
 	
